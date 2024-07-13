@@ -6,7 +6,14 @@ import { useEffect } from "react";
 
 async function getHello() {
 	const response = await api.hello.$get();
-	return response;
+
+	if (!response.ok) {
+		throw new Error("Server error");
+	}
+
+	const data = await response.json();
+
+	return data;
 }
 
 function App() {
