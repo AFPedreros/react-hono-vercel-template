@@ -2,7 +2,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { api } from "@/api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 async function getHello() {
 	const response = await api.hello.$get();
