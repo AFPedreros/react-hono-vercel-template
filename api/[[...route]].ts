@@ -4,7 +4,7 @@ import { handle } from "hono/vercel";
 import { helloRoute } from "./routes/hello";
 
 // Configure environment variables properly
-import.meta.env = process.env;
+// import.meta.env = process.env;
 
 export const config = {
 	runtime: "edge",

@@ -10,7 +10,7 @@ async function getHello() {
 }
 
 function App() {
-	const [hello, setHello] = useState("");
+	// const [hello, setHello] = useState("");
 
 	useEffect(() => {
 		getHello().then((response) => {
