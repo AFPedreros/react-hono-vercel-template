@@ -2,7 +2,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { api } from "@/api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 async function getHello() {
 	const response = await api.hello.$get();
@@ -17,11 +17,11 @@ async function getHello() {
 }
 
 function App() {
-	// const [hello, setHello] = useState("");
+	const [hello, setHello] = useState("");
 
 	useEffect(() => {
 		getHello().then((response) => {
-			console.log(response);
+			setHello(response.message);
 		});
 	}, []);
 	return (
@@ -37,7 +37,7 @@ function App() {
 			<h1>Vite + React + Hono</h1>
 			<div className="card">
 				<p>
-					Hello from Hono api <code>src/App.tsx</code>
+					Hello from Hono api <code>{hello}</code>
 				</p>
 			</div>
 			<p className="read-the-docs">
