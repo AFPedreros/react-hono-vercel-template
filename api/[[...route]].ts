@@ -16,18 +16,6 @@ app.use("*", logger());
 
 const apiRoutes = app.basePath("/api").route("/hello", helloRoute);
 
-// app.get("/hello", (c) => {
-// 	return c.json({
-// 		message: "Hello world!",
-// 	});
-// });
-
-// app.get("/env", (c) => {
-// 	return c.json({
-// 		message: `${import.meta.env.DEMO} | ${import.meta.env.VITE_DEMO}`,
-// 	});
-// });
-
 app.all("*", (c) => c.text("404: Not Found"));
 
 // Register the handler for Vercel Edge Functions
