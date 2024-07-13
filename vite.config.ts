@@ -12,19 +12,10 @@ export default defineConfig({
 		simpleHtmlPlugin({
 			minify: true,
 		}),
-		devServer({
-			entry: "./api/[[...route]].ts",
-			exclude: [
-				/.*\.tsx?($|\?)/,
-				/.*\.(s?css|less)($|\?)/,
-				/.*\.(svg|png)($|\?)/,
-				/^\/@.+$/,
-				/^\/favicon\.ico$/,
-				/^\/(public|assets|static)\/.+/,
-				/^\/node_modules\/.*/,
-			],
-			injectClientScript: false,
-		}),
+		// devServer({
+		// 	entry: "./api/[[...route]].ts",
+		// 	injectClientScript: false,
+		// }),
 		!("VERCEL" in process.env) && visualizer(),
 	],
 });
