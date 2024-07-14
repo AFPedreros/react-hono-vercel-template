@@ -14,7 +14,7 @@ export default defineConfig({
 			minify: true,
 		}),
 		devServer({
-			entry: "./api/[[...route]].ts",
+			entry: "./server/[[...route]].ts",
 			injectClientScript: false,
 		}),
 		!("VERCEL" in process.env) && visualizer(),
@@ -22,7 +22,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),
-			"@api": path.resolve(__dirname, "./api"),
+			"@api": path.resolve(__dirname, "./server"),
 		},
 	},
 });

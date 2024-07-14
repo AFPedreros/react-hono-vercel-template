@@ -36,9 +36,7 @@ function App() {
 			</div>
 			<h1>Vite + React + Hono</h1>
 			<div className="card">
-				<p>
-					Hello from Hono api <code>{hello}</code>
-				</p>
+				<code>{hello}</code>
 			</div>
 			<p className="read-the-docs">
 				Click on the Vite and React logos to learn more
