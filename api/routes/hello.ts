@@ -10,6 +10,6 @@ export const helloRoute = new Hono()
 	})
 	.get("/env", (c) => {
 		return c.json({
-			message: `${import.meta.env.VERCEL}`,
+			message: `${import.meta.env.DEMO}`,
 		});
 	});
