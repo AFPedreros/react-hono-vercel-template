@@ -1,6 +1,7 @@
 import { Hono } from "hono";
+import { loadEnv } from "vite";
 
-import.meta.env = process.env;
+process.env = { ...process.env, ...loadEnv("production", process.cwd(), "") };
 
 export const helloRoute = new Hono()
 	.get("/", (c) => {
@@ -10,6 +11,6 @@ export const helloRoute = new Hono()
 	})
 	.get("/env", (c) => {
 		return c.json({
-			message: `${import.meta.env.DEMO}`,
+			message: !("VERCEL" in process.env),
 		});
 	});
