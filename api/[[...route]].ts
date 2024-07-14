@@ -13,12 +13,14 @@ const app = new Hono();
 if (!("VERCEL" in process.env)) {
 	const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
-	serve({
-		fetch: app.fetch,
-		port,
-	});
+	import("@hono/node-server").then(({ serve }) => {
+		serve({
+			fetch: app.fetch,
+			port,
+		});
 
-	console.log(`Server is running on port ${port}`);
+		console.log(`Server is running on port ${port}`);
+	});
 }
 
 app.use("*", logger());
