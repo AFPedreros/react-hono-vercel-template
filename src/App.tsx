@@ -1,7 +1,7 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { api } from "@/api";
+import { api } from "@/client-api";
 import { useEffect, useState } from "react";
 
 async function getHello() {
