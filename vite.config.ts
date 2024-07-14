@@ -13,16 +13,20 @@ export default defineConfig({
 		simpleHtmlPlugin({
 			minify: true,
 		}),
-		devServer({
-			entry: "./api/[[...route]].ts",
-			injectClientScript: false,
-		}),
 		!("VERCEL" in process.env) && visualizer(),
 	],
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),
 			"@api": path.resolve(__dirname, "./api"),
+		},
+	},
+	server: {
+		proxy: {
+			"/api": {
+				target: "http://localhost:3000",
+				changeOrigin: true,
+			},
 		},
 	},
 });

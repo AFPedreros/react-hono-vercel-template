@@ -2,12 +2,24 @@ import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { handle } from "hono/vercel";
 import { helloRoute } from "./routes/hello";
+import { serve } from "@hono/node-server";
 
 export const config = {
 	runtime: "edge",
 };
 
 const app = new Hono();
+
+if (!("VERCEL" in process.env)) {
+	const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+
+	serve({
+		fetch: app.fetch,
+		port,
+	});
+
+	console.log(`Server is running on port ${port}`);
+}
 
 app.use("*", logger());
 
