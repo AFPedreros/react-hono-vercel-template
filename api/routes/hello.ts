@@ -1,7 +1,4 @@
 import { Hono } from "hono";
-import { loadEnv } from "vite";
-
-process.env = { ...process.env, ...loadEnv("production", process.cwd(), "") };
 
 export const helloRoute = new Hono()
 	.get("/", (c) => {
