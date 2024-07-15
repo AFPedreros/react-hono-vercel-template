@@ -7,20 +7,9 @@ export const config = {
 	runtime: "edge",
 };
 
+const isProd = process.env["NODE_ENV"] === "production";
+
 const app = new Hono();
-
-if (!("VERCEL" in process.env)) {
-	const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
-
-	import("@hono/node-server").then(({ serve }) => {
-		serve({
-			fetch: app.fetch,
-			port,
-		});
-
-		console.log(`Server is running on port ${port}`);
-	});
-}
 
 app.use("*", logger());
 
@@ -38,3 +27,9 @@ export const DELETE = GET;
 // Expose the app for `@hono/vite-dev-server`
 export default app;
 export type ApiRoutes = typeof apiRoutes;
+
+if (!isProd) {
+	import("@hono/node-server").then(({ serve }) => {
+		serve({ fetch: app.fetch, port: 3000 });
+	});
+}
