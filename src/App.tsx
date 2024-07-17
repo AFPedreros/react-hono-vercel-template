@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 
-import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+
+import reactLogo from "./assets/react.svg";
 
 import { api } from "@/client-api";
 
@@ -27,14 +28,15 @@ function App() {
       setHello(response.message);
     });
   }, []);
+
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
+          <img alt="Vite logo" className="logo" src={viteLogo} />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="https://react.dev" rel="noreferrer" target="_blank">
+          <img alt="React logo" className="logo react" src={reactLogo} />
         </a>
       </div>
       <h1>Vite + React + Hono</h1>

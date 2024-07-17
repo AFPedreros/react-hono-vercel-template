@@ -23,6 +23,5 @@ export const PUT = GET;
 export const PATCH = GET;
 export const DELETE = GET;
 
-// Expose the app for `@hono/vite-dev-server`
 export default app;
 export type ApiRoutes = typeof apiRoutes;
