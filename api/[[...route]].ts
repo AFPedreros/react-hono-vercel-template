@@ -1,10 +1,11 @@
 import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { handle } from "hono/vercel";
+
 import { helloRoute } from "./routes/hello";
 
 export const config = {
-	runtime: "edge",
+  runtime: "edge",
 };
 
 const app = new Hono();

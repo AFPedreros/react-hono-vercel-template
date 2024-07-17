@@ -1,6 +1,6 @@
 import { hc } from "hono/client";
 
-import type { ApiRoutes } from "@server/[[...route]]";
+import type { ApiRoutes } from "@api/[[...route]]";
 
 const client = hc<ApiRoutes>("/");
 
