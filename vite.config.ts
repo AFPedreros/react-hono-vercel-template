@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/order
 import path from "node:path";
 import devServer from "@hono/vite-dev-server";
+import viteReact from "@vitejs/plugin-react";
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig, loadEnv } from "vite";
 
@@ -16,7 +17,7 @@ const resolve = {
 export default defineConfig(async ({ mode }) => {
   if (mode === "client") {
     return {
-      plugins: [react()],
+      plugins: [viteReact()],
       resolve,
       server: {
         proxy: {
@@ -33,7 +34,6 @@ export default defineConfig(async ({ mode }) => {
     let devServerPlugin;
 
     if (isDev) {
-      // const { env, dispose } = await getPlatformProxy();
       devServerPlugin = devServer({
         entry: "./api/[[...route]].ts",
       });
