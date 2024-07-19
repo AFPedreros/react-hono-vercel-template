@@ -30,13 +30,13 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div>
+    <main className="flex min-h-screen w-full gap-6 flex-col justify-center items-center">
+      <div className="flex">
         <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
-          <img alt="Vite logo" className="logo" src={viteLogo} />
+          <img alt="Vite logo" className="size-36" src={viteLogo} />
         </a>
         <a href="https://react.dev" rel="noreferrer" target="_blank">
-          <img alt="React logo" className="logo react" src={reactLogo} />
+          <img alt="React logo" className="size-36" src={reactLogo} />
         </a>
       </div>
       <h1>Vite + React + Hono</h1>
@@ -46,7 +46,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </main>
   );
 }
 
