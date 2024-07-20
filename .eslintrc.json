@@ -14,10 +14,7 @@
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended"
   ],
-  "ignorePatterns": [
-    "dist",
-    ".eslintrc.json"
-  ],
+  "ignorePatterns": ["dist", ".eslintrc.json"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -52,7 +49,9 @@
       {
         "endOfLine": "auto",
         "importOrder": [
-          "^[a-z0-9]",
+          "<BUILTIN_MODULES>",
+          "",
+          "<THIRD_PARTY_MODULES>",
           "",
           "^\\/(.*)$",
           "",
@@ -62,7 +61,9 @@
           "",
           "^@api/(.*)$",
           "",
-          "^@/(.*)$"
+          "^@/(.*)$",
+          "",
+          "<TYPES>"
         ],
         "importOrderSeparation": true,
         "importOrderSortSpecifiers": true
@@ -114,25 +115,13 @@
       },
       {
         "blankLine": "always",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
+        "prev": ["const", "let", "var"],
         "next": "*"
       },
       {
         "blankLine": "any",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
-        "next": [
-          "const",
-          "let",
-          "var"
-        ]
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
       }
     ]
   }

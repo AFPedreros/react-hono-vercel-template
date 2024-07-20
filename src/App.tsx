@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-
-import "./App.css";
+import { Skeleton } from "@nextui-org/react";
+import { useQuery } from "@tanstack/react-query";
 
 import viteLogo from "/vite.svg";
 
@@ -21,16 +20,13 @@ async function getHello() {
 }
 
 function App() {
-  const [hello, setHello] = useState("");
-
-  useEffect(() => {
-    getHello().then((response) => {
-      setHello(response.message);
-    });
-  }, []);
+  const { data, isLoading } = useQuery({
+    queryKey: ["get-hello"],
+    queryFn: getHello,
+  });
 
   return (
-    <main className="flex min-h-screen w-full gap-6 flex-col justify-center items-center">
+    <div className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6">
       <div className="flex">
         <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
           <img alt="Vite logo" className="size-36" src={viteLogo} />
@@ -40,13 +36,16 @@ function App() {
         </a>
       </div>
       <h1>Vite + React + Hono</h1>
-      <div className="card">
-        <code>{hello}</code>
+      <div className="flex flex-col">
+        {isLoading && (
+          <Skeleton className="h-3 w-full min-w-36 rounded-lg bg-default-300" />
+        )}
+        {!isLoading && <code>{data?.message}</code>}
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </main>
+    </div>
   );
 }
 
