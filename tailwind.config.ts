@@ -9,7 +9,11 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "spin-logo": "spin 20s linear infinite",
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()],
