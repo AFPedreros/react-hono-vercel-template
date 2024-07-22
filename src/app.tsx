@@ -1,6 +1,7 @@
 import { Button, Link, Skeleton } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
 
+import honoLogo from "/hono.svg";
 import reactLogo from "/react.svg";
 import viteLogo from "/vite.svg";
 
@@ -39,8 +40,15 @@ function App() {
         <a href="https://react.dev" rel="noreferrer" target="_blank">
           <img
             alt="React logo"
-            className="animate-spin-logo size-24 duration-300 hover:drop-shadow-[0_0_2rem_#61dafb]"
+            className="size-24 animate-spin-logo duration-300 hover:drop-shadow-[0_0_2rem_#61dafb]"
             src={reactLogo}
+          />
+        </a>
+        <a href="https://hono.dev/" rel="noreferrer" target="_blank">
+          <img
+            alt="Hono logo"
+            className="size-24 duration-300 hover:drop-shadow-[0_0_2rem_#ff5b11]"
+            src={honoLogo}
           />
         </a>
       </div>
@@ -66,7 +74,7 @@ function App() {
         {!isLoading && <code>{data?.message}</code>}
       </div>
       <p className="text-foreground-400">
-        The Hono api and the React app are deployed on Vercel.
+        Full-Stack monorepo with Hono API and React frontend deployed on Vercel
       </p>
     </div>
   );
