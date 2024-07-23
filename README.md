@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# Vite + React + Hono
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio demuestra una simple aplicación de página única (SPA) construida con React y TypeScript, potenciada por el framework serverless Hono y desplegada en Vercel.
 
-Currently, two official plugins are available:
+Esta plantilla proporciona una configuración mínima para que puedas empezar con:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React:**
+- **TypeScript:**
+- **Vite:**
+- **Hono:**
+- **TanStack Query:**
+- **NextUI:**
+- **Vercel:**
 
-## Expanding the ESLint configuration
+## Setup and Development
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clona el repositorio:**
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   git clone https://github.com/AFPedreros/react-hono-vercel-template.git
+   cd react-hono-vercel-template
+   ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+2. **Instala las dependencias:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   pnpm install
+   ```
+
+3. **Inicia el servidor de desarrollo:**
+
+   ```bash
+   npm run dev
+   ```
+
+   Esto iniciará dos servidores:
+
+   - **Cliente:** Se ejecuta en `http://localhost:5173/` y sirve la aplicación React.
+   - **API:** Se ejecuta en `http://localhost:3000/api` y sirve la API de Hono.
+
+## Despliegue
+
+Despliega en Vercel.
