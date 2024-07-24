@@ -1,5 +1,4 @@
-import { Button, Link, Skeleton } from "@nextui-org/react";
-import { useQuery } from "@tanstack/react-query";
+import { Button, Link } from "@nextui-org/react";
 
 import honoLogo from "/hono.svg";
 import reactLogo from "/react.svg";
@@ -7,26 +6,9 @@ import viteLogo from "/vite.svg";
 
 import { GithubIcon } from "./components/icons";
 
-import { api } from "@/client-api";
-
-async function getHello() {
-  const response = await api.hello.$get();
-
-  if (!response.ok) {
-    throw new Error("Server error");
-  }
-
-  const data = await response.json();
-
-  return data;
-}
+import { Hello } from "@/features/hello/components/hello";
 
 function App() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["get-hello"],
-    queryFn: getHello,
-  });
-
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6">
       <div className="flex gap-8">
@@ -66,12 +48,8 @@ function App() {
           {" "}
           Github
         </Button>
-        {isLoading && (
-          <div className="flex h-6 w-full items-center justify-center">
-            <Skeleton className="h-4 w-full min-w-36 rounded-lg bg-default-300" />
-          </div>
-        )}
-        {!isLoading && <code>{data?.message}</code>}
+
+        <Hello />
       </div>
       <p className="text-foreground-400">
         Full-Stack monorepo with Hono API and React frontend deployed on Vercel
